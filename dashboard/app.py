@@ -313,7 +313,8 @@ with tab3:
         fig.add_hline(y=acc_cfg["target_balance"], line_dash="dot", line_color="#44AA44", annotation_text="Целевой баланс")
 
         # Mark today
-        fig.add_vline(x=str(df["date"].max()), line_dash="solid", line_color="gray", annotation_text="Сегодня")
+        today_ts = df["date"].max().timestamp() * 1000
+        fig.add_vline(x=today_ts, line_dash="solid", line_color="gray", annotation_text="Сегодня")
 
         fig.update_layout(
             height=380,
